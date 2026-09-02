@@ -1,0 +1,21 @@
+Uma possibilidade é utilizar um VBO intercalado, contendo posição e cor de cada vértice
+
+float vertices[] = {
+    // posição       // cor
+     0.0f,  0.8f,     1.0f, 0.0f, 0.0f,  // P1 - vermelho
+    -0.8f, -0.7f,     0.0f, 1.0f, 0.0f,  // P2 - verde
+     0.8f, -0.5f,     0.0f, 0.0f, 1.0f   // P3 - azul
+};
+
+Assim, a estrutura do VBO seria:
+
+Vértice 0 (P1):
+[x, y, r, g, b]
+
+Vértice 1 (P2):
+[x, y, r, g, b]
+
+Vértice 2 (P3):
+[x, y, r, g, b]
+
+E podemos configurar o VAO associando a localização com a cor.

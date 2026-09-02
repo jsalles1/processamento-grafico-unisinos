@@ -1,0 +1,1 @@
+No vertex shader, podemos usar layout(location = ) para dizer ao OpenGL qual atributo corresponde a qual dado do VBO.
