@@ -1,2 +1,2 @@
-No vertex shader, devemos identificar cada atributo, coordenadas e cores, corresponde a qual dado do VBO.
+No vertex shader, devemos identificar cada atributo, coordenadas e cores, que corresponde a qual dado do VBO.
 Podemos usar layout(location = ), para depois passar os dados associados para o fragment shader.

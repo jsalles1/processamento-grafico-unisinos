@@ -152,12 +152,6 @@ int main()
 
 		glDrawArrays(GL_TRIANGLES, 0, 3); //  triângulo P1,P2,P3 
 
-
-
-		// Chamada de desenho - drawcall
-		// Poligono Preenchido - GL_TRIANGLES
-
-
 		// glBindVertexArray(0); // Desnecessário aqui, pois não há múltiplos VAOs
 
 		// Troca os buffers da tela

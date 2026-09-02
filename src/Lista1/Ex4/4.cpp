@@ -164,7 +164,7 @@ int main()
 
 				// Cria uma string e define o FPS como título da janela.
 				char tmp[256];
-				sprintf(tmp, "Ola Triangulo! -- Rossana\tFPS %.2lf", fps);
+				sprintf(tmp, "Ola Overwatch! -- Joao\tFPS %.2lf", fps);
 				glfwSetWindowTitle(window, tmp);
 
 				title_countdown_s = 0.1; // Reinicia o temporizador para atualizar o título periodicamente.
@@ -183,32 +183,14 @@ int main()
 
 		glBindVertexArray(VAO); // Conectando ao buffer de geometria
 
-        glUniform4f(
-            colorLoc,
-            1.0f, 1.0f, 1.0f, 1.0f
-        );
+        // Arco branco
+        glUniform4f(colorLoc,1.0f, 1.0f, 1.0f, 1.0f);
+        glDrawArrays(GL_TRIANGLES,inicioBranco,verticesBranco);
 
-        glDrawArrays(
-            GL_TRIANGLES,
-            inicioBranco,
-            verticesBranco
-        );
+        // Arco laranja
+        glUniform4f(colorLoc,1.0f, 0.55f, 0.05f, 1.0f);
 
-
-        // ============================================================
-        // ARCO LARANJA
-        // ============================================================
-
-        glUniform4f(
-            colorLoc,
-            1.0f, 0.55f, 0.05f, 1.0f
-        );
-
-        glDrawArrays(
-            GL_TRIANGLES,
-            inicioLaranja,
-            verticesLaranja
-        );
+        glDrawArrays(GL_TRIANGLES,inicioLaranja,verticesLaranja);
 
         // Simbolo central
         glUniform4f(colorLoc,1.0f, 1.0f, 1.0f, 1.0f);
@@ -331,7 +313,6 @@ int setupGeometry(){
             float x2i = raioInterno * cos(a2);
             float y2i = raioInterno * sin(a2);
 
-            // Quadrilátero do anel = 2 triângulos
             addTriangle(
                 x1e, y1e,
                 x2e, y2e,
@@ -402,6 +383,7 @@ int setupGeometry(){
     );
 
     verticesSimbolo = vertices.size() / 3 - inicioSimbolo;
+    
 
     GLuint VBO, VAO;
 
