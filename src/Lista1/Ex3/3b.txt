@@ -1,1 +1,2 @@
-No vertex shader, podemos usar layout(location = ) para dizer ao OpenGL qual atributo corresponde a qual dado do VBO.
+No vertex shader, devemos identificar cada atributo, coordenadas e cores, corresponde a qual dado do VBO.
+Podemos usar layout(location = ), para depois passar os dados associados para o fragment shader.

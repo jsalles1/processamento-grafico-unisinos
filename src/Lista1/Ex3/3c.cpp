@@ -1,39 +1,3 @@
-/*
-3. Considerando o seguinte triângulo ao lado, formado pelos 
-vértices P1, P2 e P3, respectivamente com as cores vermelho, 
-verde e azul.  
-
-a) Descreva uma possível configuração dos buffers (VBO, 
-VAO) para representá-lo.  
-
-Resposta: O VBO (Vertex Buffer Object) é um bloco de memória na GPU com os números 
-dos vértices, sem significado ou uso atribuído. Para este triângulo, o VBO armazenaria, 
-para cada vértice, 6 valores: posição (x, y, z) seguida da cor (r, g, b), intercalados 
-sequencialmente no buffer.
-
-O VAO (Vertex Array Object) é a receita de como ler esses dados do VBO: quantos atributos 
-existem, onde cada um começa, quantos valores tem. É o que glVertexAttribPointer + 
-glEnableVertexAttribArray fazem. Neste caso, seriam configurados dois atributos: um para 
-posição (3 floats) e outro para cor (3 floats), cada um com seu próprio stride (distância 
-entre vértices consecutivos) e offset (deslocamento dentro de cada vértice).
-
-A mudança conceitual em relação a um triângulo de cor única é adicionar um segundo atributo 
-(cor por vértice) em vez de uma uniform fixa: cada vértice carrega sua própria cor no buffer, 
-e a GPU interpola automaticamente essas cores entre os vértices pela superfície do triângulo. 
-É assim que P1 vermelho, P2 verde e P3 azul geram um gradiente suave dentro da forma.
-
-b) Como estes atributos seriam identificados no vertex 
-shader?
-
-Resposta: No vertex shader, cada atributo é identificado por um qualificador `layout (location = N) in`, 
-onde N corresponde exatamente ao índice usado no glVertexAttribPointer/glEnableVertexAttribArray 
-do lado da aplicação C++. A posição seria declarada como `layout (location = 0) in vec3 position;` 
-e a cor como `layout (location = 1) in vec3 color;`. O vertex shader então repassa a cor recebida 
-para o fragment shader através de uma variável `out`, que é interpolada automaticamente pela 
-GPU entre os três vértices do triângulo antes de chegar a cada fragmento.
-*/
- 
-
 #include <iostream>
 #include <string>
 #include <assert.h>
@@ -280,9 +244,9 @@ int setupGeometry()
 	// Pode ser arazenado em um VBO único ou em VBOs separados
 GLfloat vertices[] = {
     // x     y     z      r     g     b
-     0.0,  0.75, 0.0,   1.0, 0.0, 0.0,  // P1 - vermelho
-    -0.5, -0.10, 0.0,   0.0, 1.0, 0.0,  // P2 - verde
-     0.5, -0.10, 0.0,   0.0, 0.0, 1.0,  // P3 - azul
+     0.0,  0.75, 0.0,   1.0, 0.0, 0.0,  // P1: vermelho
+    -0.5, -0.10, 0.0,   0.0, 1.0, 0.0,  // P2: verde
+     0.5, -0.10, 0.0,   0.0, 0.0, 1.0,  // P3: azul
 };
 
 	GLuint VBO, VAO;

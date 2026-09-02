@@ -1,4 +1,4 @@
-Uma possibilidade é utilizar um VBO intercalado, contendo posição e cor de cada vértice
+Uma possibilidade é utilizar um VBO intercalado, contendo posição e cor de cada vértice. Por exemplo:
 
 float vertices[] = {
     // posição       // cor
@@ -18,4 +18,5 @@ Vértice 1 (P2):
 Vértice 2 (P3):
 [x, y, r, g, b]
 
-E podemos configurar o VAO associando a localização com a cor.
+E podemos configurar o VAO com 2 atributos, associando a localização com a cor.
+Cada vértice deve carregar sua cor no buffer, e a GPU interpola essas cores, formando o triangulo.
